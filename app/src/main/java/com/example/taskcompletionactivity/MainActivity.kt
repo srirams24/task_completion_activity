@@ -16,7 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.taskcompletionactivity.ui.theme.TaskCompletionActivityTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +40,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TaskManagerApp(modifier: Modifier = Modifier) {
-    TaskCompletionActivity()
+    TaskCompletionActivity(modifier)
 }
 
 @Composable
@@ -48,15 +51,20 @@ fun TaskCompletionActivity(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
+            .fillMaxSize()
     ) {
         Image(
             painter = statusImage, contentDescription = null
         )
         Text(
-            text = stringResource(R.string.task_completion_text)
+            text = stringResource(R.string.task_completion_text),
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(top = 24.dp, bottom = 8.dp)
         )
         Text(
-            text = stringResource(R.string.compliment_text)
+            text = stringResource(R.string.compliment_text),
+            fontSize = 16.sp
         )
     }
 
